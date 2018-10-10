@@ -38,8 +38,7 @@ The dictionaries extracted from HCP900 resting-state data can be download runnin
 They may also be downloaded manually 
 - [64-components dictionary covering the whole brain](assets/data/modl/components_64.nii.gz)
 - [128-components dictionary covering the whole brain](assets/data/modl/components_128.nii.gz)
-- [512-components dictionary covering the whole brain](assets/data/modl/components_453_gm.nii.gz)
-- [453-components dictionary covering the grey-matter](assets/data/modl/components_512.nii.gz)
+- [453-components dictionary covering the grey-matter](assets/data/modl/components_453_gm.nii.gz)
 - [128-components dictionary loadings over the 453-components dictionary](assets/data/modl/loadings_128_gm.npy)
 
 ## Reduced representation of the 35 studies
