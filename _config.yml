@@ -16,15 +16,16 @@
 title: Cogspaces
 email: arthur.mensch@m4x.org
 description: >- # this means to ignore newlines until "baseurl:"
-  Cogspace repository
+  Multi-study decoding models for task functional MRI data
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "cogspaces.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  cogspaces
-repository: cogspaces/cogspaces
+github_username:  arthurmensch
+repository: arthurmensch/cogspaces
+paper: 
 
 # Build settings
 markdown: kramdown
-theme: minima
+theme: jekyll-theme-cayman
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
@@ -37,5 +38,3 @@ theme: minima
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
-exclude:
-    - data/
