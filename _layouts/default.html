@@ -33,7 +33,11 @@
         <a href="{{ site.github.tar_url }}" class="btn">Download .tar.gz</a>
       {% endif %}
         <!-- <a href="http://papers.nips.cc/paper/7170-learning-neural-representations-of-human-cognition-across-many-fmri-studies" class="btn">Paper (NIPS 2017)</a> -->
-        <a href="https://arxiv.org/abs/1809.06035" class="btn">Preprint paper (arXiv)</a>
+      {% if site.papers %}
+        {% for paper in site.papers %}
+          <a href="{{ paper.url }}" class="btn">{{ paper.url }}</a>
+        {% endfor %}
+      {% endif %}
     </header>
 
     <main id="content" class="main-content" role="main">

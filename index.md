@@ -4,7 +4,7 @@
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 ---
 
-The cogspace package allows to reproduce and reuse the multi-study task functional MRI decoding models presented in this [NIPS 2017 paper](http://papers.nips.cc/paper/7170-learning-neural-representations-of-human-cognition-across-many-fmri-studies) and this follow-up [preprint paper](https://arxiv.org/abs/1809.06035).
+The cogspace package allows to reproduce and reuse the multi-study task functional MRI decoding models presented in this [preprint paper](https://arxiv.org/abs/1809.06035).
 
 # Software
 
@@ -18,6 +18,20 @@ python setup.py install
 ```
 
 ## Using the multi-study models
+
+```bash
+train.py [-h] [-e {ensemble,logistic,factored}] [-s SEED] [-p]
+
+Train function
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -e {ensemble,logistic,factored}, --estimator {ensemble,logistic,factored}
+                        estimator type
+  -s SEED, --seed SEED  estimator type
+  -p, --plot            estimator type
+
+```
 
 
 # Provided data
@@ -71,15 +85,16 @@ The full statistical maps are available on Neurovault, and may be downloaded usi
 
 
 
-
 ## Publications
 
-If the model or data proved useful to you, please consider to cite the following papers
-
-- Mensch, A., Mairal, J., Bzdok, D., Thirion, B., & Varoquaux, G. (2017).
-Learning Neural Representations of Human Cognition across Many fMRI Studies.
-In Advances in Neural Information Processing Systems (pp. 5883-5893).
+If the model or data proved useful, please consider to cite the following paper
 
 - Mensch, A., Mairal, J., Thirion, B., & Varoquaux, G. (2018). 
 Extracting Universal Representations of Cognition across Brain-Imaging Studies.
 arXiv: 1809.06035
+
+You may consider citing this proof-of-concept paper as well:
+
+- Mensch, A., Mairal, J., Bzdok, D., Thirion, B., & Varoquaux, G. (2017).
+Learning Neural Representations of Human Cognition across Many fMRI Studies.
+In Advances in Neural Information Processing Systems (pp. 5883-5893).

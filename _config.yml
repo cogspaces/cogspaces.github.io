@@ -20,8 +20,15 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "cogspaces.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  arthurmensch
-repository: cogspaces/cogspaces
-paper: 
+repository: arthurmensch/cogspaces
+
+github:
+  is_project_page: true
+
+papers:
+  - name: Preprint paper (arXiv)
+    url: https://arxiv.org/abs/1809.06035
+
 
 # Build settings
 markdown: kramdown
