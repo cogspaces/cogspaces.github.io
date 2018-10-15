@@ -26,6 +26,7 @@ github:
   is_project_page: true
   repository_url: https://github.com/arthurmensch/cogspaces
   owner_name: arthurmensch
+  owner_url: https://github.com/arthurmensch
 
 papers:
   - name: Preprint paper (arXiv)
