@@ -6,7 +6,7 @@
 
 The cogspace package allows to reproduce and reuse the multi-study task functional MRI decoding models presented in this [preprint paper](https://arxiv.org/abs/1809.06035).
 
-# Principles
+# A new decoding approach
 
 Our multi-study decoding model decodes mental states from statistical maps using a three-layer linear model that finds successive representations of brain maps that carry cognitive information. It finds task-optimized networks from which decoding generalize well across subjects.
 
@@ -58,23 +58,27 @@ optional arguments:
                         components)
 ```
 
-Grids can be run and analyzed with the following command:
+A comparison grid between the factored model and decoding models from resting-state loadings can be run and analyzed with the following command:
 
 ```bash
 cd exps
 python grid.py
+# Plot results
+python compare.py
 ```
 
-Reduction of full statistical maps into data usable in `train.py` 
-can be performed with the command:
+Note that the original figure of the paper compares the multi-study decoder to voxelwise, single-study decoder. As the input data for this baseline is large and requires to be downloaded and processed, we propose to reproduce a comparison with only reduced data as input.
+
+Reduction of full statistical maps into data usable in `train.py` can be performed with the command:
 
 ```bash
 cd exps
 python reduce.py
-python compare.py
 ```
 
-# Provided data
+Once obtained, a voxelwise decoder can be trained by changing the parameter `config['data']['reduced'] = True` in `train.py`. 
+
+# Data
 
 We provide resting-state dictionaries for reducing statistical maps (the first layer of the model), as well as the reduced representation of the input statistical maps, and fetchers for the full statistical maps.
 
@@ -89,7 +93,7 @@ dictionaries = fetch_dictionaries()
 # dictionaries = {'components_64': ...}
 ```
 
-They may also be downloaded manually 
+They were obtained using the [modl](https://github.com/arthurmensch/modl) package. They may also be downloaded manually 
 - [64-components dictionary covering the whole brain](assets/data/modl/components_64.nii.gz)
 - [128-components dictionary covering the whole brain](assets/data/modl/components_128.nii.gz)
 - [453-components dictionary covering the grey-matter](assets/data/modl/components_453_gm.nii.gz)
@@ -125,7 +129,7 @@ df = fetch_contrasts('all')
 
 
 
-## Publications
+# Publications
 
 If the model or data proved useful, please consider to cite the following paper
 
