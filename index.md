@@ -6,7 +6,23 @@
 
 The cogspace package allows to reproduce and reuse the multi-study task functional MRI decoding models presented in this [preprint paper](https://arxiv.org/abs/1809.06035).
 
+# Principles
+
+Our multi-study decoding model decodes mental states from statistical maps using a three-layer linear model that finds successive representations of brain maps that carry cognitive information. It finds task-optimized networks from which decoding generalize well across subjects.
+
+![Three-layer decoding model](assets/imgs/abstract_simple.jpg)
+
+This approach allows to transfer cognitive information from one task fMRI study to another, and significantly increases decoding accuracy for many studies.
+
+![Quantitative improvements](assets/imgs/quantitative.jpg)
+
+It also finds meaningful cognitive directions, readily associated to the labels they encourage to classify.
+
+![Meaningful cognitive directions](assets/imgs/latent.jpg)
+
 # Software
+
+Cogspaces is tested with Python 3.6+.
 
 ## Install
 
@@ -17,22 +33,46 @@ pip install -r requirements.txt
 python setup.py install
 ```
 
-## Using the multi-study models
+## Training and using multi-study models
+
+`exps/train.py` allows to train and analyse multi-study models.
 
 ```bash
-train.py [-h] [-e {ensemble,logistic,factored}] [-s SEED] [-p]
+cd exps
+python train.py
+```
 
-Train function
+```
+usage: train.py [-h] [-e {ensemble,logistic,factored}] [-s SEED] [-p]
+
+Perform traininig of a multi-study model using the fetchers provided by
+cogspaces. Hyperparameters can be edited in the file.
 
 optional arguments:
   -h, --help            show this help message and exit
   -e {ensemble,logistic,factored}, --estimator {ensemble,logistic,factored}
                         estimator type
-  -s SEED, --seed SEED  estimator type
-  -p, --plot            estimator type
-
+  -s SEED, --seed SEED  Integer to use to seed the model and half-split cross-
+                        validation
+  -p, --plot            Plot the results (classification maps, cognitive
+                        components)
 ```
 
+Grids can be run and analyzed with the following command:
+
+```bash
+cd exps
+python grid.py
+```
+
+Reduction of full statistical maps into data usable in `train.py` 
+can be performed with the command:
+
+```bash
+cd exps
+python reduce.py
+python compare.py
+```
 
 # Provided data
 
@@ -43,10 +83,10 @@ We provide resting-state dictionaries for reducing statistical maps (the first l
 The dictionaries extracted from HCP900 resting-state data can be download running
 
 ```python
-    from cogspaces.datasets import fetch_dictionaries
+from cogspaces.datasets import fetch_dictionaries
 
-    dictionaries = fetch_dictionaries()
-    # dictionaries = {'components_64': ...}
+dictionaries = fetch_dictionaries()
+# dictionaries = {'components_64': ...}
 ```
 
 They may also be downloaded manually 
@@ -60,26 +100,26 @@ They may also be downloaded manually
 The loadings of the z-statistic maps over the 453-components dictionary can be loaded running
 
 ```python
-    from cogspaces.datasets import load_reduced_loadings
+from cogspaces.datasets import load_reduced_loadings
 
-    Xs, ys = load_reduced_loadings()
-    print(Xs)
-    # {'archi': np.array(...), 'hcp': np.array(...)}
-    print(ys)
-    # {'archi': pd.DataFrame}, ...)
-    print(ys['archi'].columns)
-    # ['study', 'subject', 'task', 'contrast']
+Xs, ys = load_reduced_loadings()
+print(Xs)
+# {'archi': np.array(...), 'hcp': np.array(...)}
+print(ys)
+# {'archi': pd.DataFrame}, ...)
+print(ys['archi'].columns)
+# ['study', 'subject', 'task', 'contrast']
 ```
 
 The full statistical maps are available on Neurovault, and may be downloaded using
 
 ```python
-    from cogspaces.datasets import fetch_contrasts
+from cogspaces.datasets import fetch_contrasts
 
-    df = fetch_contrasts('archi')
-    print(df.columns)
-    # ['z_map', 'study', 'subject', 'task', 'contrast']
-    df = fetch_contrasts('all')
+df = fetch_contrasts('archi')
+print(df.columns)
+# ['z_map', 'study', 'subject', 'task', 'contrast']
+df = fetch_contrasts('all')
 ```
 
 
