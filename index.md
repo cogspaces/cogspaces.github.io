@@ -20,6 +20,25 @@ It also finds meaningful cognitive directions, readily associated to the labels 
 
 ![Meaningful cognitive directions](assets/imgs/latent.jpg)
 
+# Multi-study task optimized networks
+
+
+
+Our approach allows to find functional networks optimized for general decoding. These networks can be reused in new studies for dimension reduction, with an expected boost in performance. Components trained on 35 studies (in compressed Nifti image format) can be found [here](assets/MSTON/components.nii.gz). 
+
+
+## Task/network correspondance
+
+The typical tasks associated with each of these components [can be visualized with word-clouds](assets/MSTON/components.html), as exemplified below.
+
+{::options parse_block_html="true" /}
+<a href="{{'assets/MSTON/components.html' | absolute_url }}">
+<img src="{{'assets/MSTON/components/components_0_stat_map.png' | absolute_url }}" width="300px"/>
+<img src="{{'assets/MSTON/wc_cosine_similarities/wc_cat_0.png' | absolute_url}}" width="500px"/>
+</a>
+{::options parse_block_html="false" /}
+
+
 # Software
 
 Cogspaces is tested with Python 3.6+.
@@ -88,7 +107,7 @@ Once obtained, a voxelwise decoder can be trained by changing the parameter `con
 
 Please check the docstrings in the package for a description of the API. In particular, the core scikit-learn like estimators are located in `cogspaces.classification`. Feel free to raise any issue on [github]{{ site.github.repository_url }}.
 
-# Data
+# Further data
 
 We provide resting-state dictionaries for reducing statistical maps (the first layer of the model), as well as the reduced representation of the input statistical maps, and fetchers for the full statistical maps.
 
@@ -135,9 +154,6 @@ print(df.columns)
 # ['z_map', 'study', 'subject', 'task', 'contrast']
 df = fetch_contrasts('all')
 ```
-
-
-
 
 # Publications
 
