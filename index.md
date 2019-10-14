@@ -5,6 +5,7 @@
 ---
 
 The cogspace package allows to reproduce and reuse the multi-study task functional MRI decoding models presented in this [preprint paper](https://arxiv.org/abs/1809.06035).
+**Meaningful multi-study task-optimized networks can be downloaded [here](assets/MSTON/components.nii.gz) in Nifti format**, and visualized [here](assets/MSTON/components.html) along with associated tags.
 
 # A new decoding approach
 
@@ -20,9 +21,7 @@ It also finds meaningful cognitive directions, readily associated to the labels 
 
 ![Meaningful cognitive directions](assets/imgs/latent.jpg)
 
-# Multi-study task optimized networks
-
-
+# Downloading multi-study task optimized networks
 
 Our approach allows to find functional networks optimized for general decoding. These networks can be reused in new studies for dimension reduction, with an expected boost in performance. Components trained on 35 studies (in compressed Nifti image format) can be found [here](assets/MSTON/components.nii.gz). 
 
