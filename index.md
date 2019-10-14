@@ -154,6 +154,10 @@ print(df.columns)
 df = fetch_contrasts('all')
 ```
 
+# License
+
+Library and models are published under the Modified BSD License.
+
 # Publications
 
 If the model or data proved useful, please consider to cite the following paper
